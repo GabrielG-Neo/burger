@@ -2,11 +2,11 @@ const connection = require("./connection.js");
 
 const orm = {
 
-orm.selectAll()
+selectAll()
 
-orm.insertOne()
+insertOne()
 
-orm.updateOne()
+.updateOne()
 
 };
 
