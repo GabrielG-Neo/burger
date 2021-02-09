@@ -3,9 +3,9 @@
 <h2>Cheaters Choice</h2>
 
 <ul>
-  {{#each cats}}
+  {{#each burgers}}
     {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+      {{> burgers/burger-block sleep=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,9 +13,9 @@
 <h2>Devoured</h2>
 
 <ul>
-  {{#each cats}}
+  {{#each burgers}}
     {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+      {{> burgers/burger-block sleep=false}}
     {{/if}}
   {{/each}}
 </ul>

@@ -1,14 +1,5 @@
 const connection = require("./connection.js");
 
-const orm = {
-
-selectAll()
-
-insertOne()
-
-updateOne()
-
-
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -57,7 +48,7 @@ var orm = {
   },
   create: function(tableName, columNames, vals, cb) {
     var queryString = `INSERT INTO ${tableName} (${columNames.toString()})
-                       VALUES (${printQuestionMarks(vals.length)})`;
+        VALUES (${printQuestionMarks(vals.length)})`;
 
     console.log(queryString);
 
@@ -71,35 +62,30 @@ var orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(tableName, objColVals, condition, cb) {
-    var queryString = `UPDATE ${tableName}
-                       SET ${objToSql(objColVals)}
-                       WHERE ${condition}`;
+    var queryString = `UPDATE ${tableName} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
     console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-
-      cb(result);
+        cb(result);
     });
   },
+
   delete: function(tableName, columnName, columnValue, cb) {
-    var queryString = `DELETE FROM ??
-                       WHERE ??=?`;
+    var queryString = `DELETE FROM ?? WHERE ??=?`;
 
     connection.query(queryString, [tableName, columnName, columnValue], function(err, result) {
       if (err) {
         throw err;
       }
-
-      cb(result);
+        cb(result);
     });
   },
-  ormDeleteAsyncExample: async function(tableName, columnName, columnValue) {
-    let SQL_STATEMENT = `DELETE FROM ?? 
-                         WHERE ?? = ?`;
 
+  ormDeleteAsyncExample: async function(tableName, columnName, columnValue) {
+    let SQL_STATEMENT = `DELETE FROM ?? WHERE ?? = ?`;
     try {
         const [rows, fields] = await connection.promise().query(SQL_STATEMENT, [tableName, columnName, columnValue]);
         return rows;
