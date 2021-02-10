@@ -84,16 +84,5 @@ var orm = {
     });
   },
 
-  ormDeleteAsyncExample: async function(tableName, columnName, columnValue) {
-    let SQL_STATEMENT = `DELETE FROM ?? WHERE ?? = ?`;
-    try {
-        const [rows, fields] = await connection.promise().query(SQL_STATEMENT, [tableName, columnName, columnValue]);
-        return rows;
-    } catch (error) {
-        console.log(error);
-    }
-  }
-};
-
 // Export the orm object for the model (cat.js).
-module.exports = orm;
+module.xports = orm;
