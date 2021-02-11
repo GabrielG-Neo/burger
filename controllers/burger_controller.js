@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const burger = require("../models/burger.js");
+const orm = require("../config/orm.js");
 
 router.get("/", function(req, res) {
     burger.all(function(data) {
@@ -13,7 +14,6 @@ router.get("/", function(req, res) {
   });
   
   router.post("/api/burgers", function(req, res) {
-  
     burger.create(["name", "devoured"], [req.body.name, req.body.devoured], function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
@@ -37,3 +37,5 @@ router.get("/", function(req, res) {
       }
     });
   });
+
+  module.exports = router;
