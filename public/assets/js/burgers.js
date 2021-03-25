@@ -3,7 +3,6 @@
 // listener on form, submit form to add to db
 // create another li and append to ul
 
-console.log("Getting here")
 $(function() {
   $("#bb").on("click", function(event)
   {
