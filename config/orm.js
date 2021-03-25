@@ -1,4 +1,4 @@
-const connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
   var arr = [];
@@ -50,7 +50,7 @@ var orm = {
     var queryString = `INSERT INTO ${tableName} (${columNames.toString()})
         VALUES (${printQuestionMarks(vals.length)})`;
 
-    console.log(queryString);
+    console.log("Data values: ", queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -64,7 +64,7 @@ var orm = {
   update: function(tableName, objColVals, condition, cb) {
     var queryString = `UPDATE ${tableName} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
-    console.log(queryString);
+    console.log("Update data: ", queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -72,18 +72,8 @@ var orm = {
         cb(result);
     });
   },
-
-  delete: function(tableName, columnName, columnValue, cb) {
-    var queryString = `DELETE FROM ?? WHERE ??=?`;
-
-    connection.query(queryString, [tableName, columnName, columnValue], function(err, result) {
-      if (err) {
-        throw err;
-      }
-        cb(result);
-    });
-}}
+};
   
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (burger.js).
 module.exports = orm

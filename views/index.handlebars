@@ -1,38 +1,37 @@
+
+<div class="container">
 <h1>Cheat Burgers</h1>
 
-<h2>Cheaters Choice</h2>
+<h2>Burger Cravings</h2>
 
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{burger_name}}
+      {{name}}
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Devoured</h2>
+<h2>Devoured It!!</h2>
 
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-     {{burger_name}}
+     {{name}}
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Craving a Burger</h2>
+<h3>What Burger Do You Crave?</h3>
 <form class="create-form">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <input type="text" id="ca" name="devoured">
   </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured<br>
-  </div>
-
-  <button type="submit" value="name"></button>Add Burger</button>
+  <input type="radio" name="devoured" value="1">Devoured</input >
+  <input type="radio" name="devoured" value="0">Not Devoured</input >
+  <button id="bb" type="submit" name="devoured">Add My Burger</button>
 </form>
+</div>
 
